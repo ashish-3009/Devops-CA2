@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Feedback Registration Form</title>
+
+    <!-- Sub Task 2: External CSS -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Sub Task 2: Internal CSS -->
+    <style>
+      body {
+        background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Segoe UI", sans-serif;
+        padding: 30px 0;
+      }
+
+      .form-wrapper {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(12px);
+        border-radius: 16px;
+        padding: 40px 45px;
+        width: 100%;
+        max-width: 560px;
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+      }
+
+      .form-title {
+        text-align: center;
+        color: #ffffff;
+        font-size: 22px;
+        font-weight: 700;
+        margin-bottom: 6px;
+        letter-spacing: 0.5px;
+      }
+
+      .form-subtitle {
+        text-align: center;
+        color: #a0aec0;
+        font-size: 13px;
+        margin-bottom: 28px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="form-wrapper">
+      <h2 class="form-title">📋 Student Feedback Form</h2>
+      <p class="form-subtitle">Please fill in all the details carefully</p>
+
+      <!-- Sub Task 1: Registration Form -->
+      <form id="feedbackForm" novalidate>
+        <!-- Student Name -->
+        <div class="form-group">
+          <label for="studentName"
+            >Student Name <span class="required">*</span></label
+          >
+          <input
+            type="text"
+            id="studentName"
+            name="studentName"
+            placeholder="Enter your full name"
+          />
+          <span class="error-msg" id="nameError"></span>
+        </div>
+
+        <!-- Email ID -->
+        <div class="form-group">
+          <label for="email">Email ID <span class="required">*</span></label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="example@email.com"
+          />
+          <span class="error-msg" id="emailError"></span>
+        </div>
+
+        <!-- Mobile Number -->
+        <div class="form-group">
+          <label for="mobile"
+            >Mobile Number <span class="required">*</span></label
+          >
+          <input
+            type="text"
+            id="mobile"
+            name="mobile"
+            placeholder="10-digit mobile number"
+            maxlength="10"
+          />
+          <span class="error-msg" id="mobileError"></span>
+        </div>
+
+        <!-- Department -->
+        <div class="form-group">
+          <label for="department"
+            >Department <span class="required">*</span></label
+          >
+          <select id="department" name="department">
+            <option value="">-- Select Department --</option>
+            <option value="CSE">Computer Science Engineering (CSE)</option>
+            <option value="IT">Information Technology (IT)</option>
+            <option value="ECE">Electronics & Communication (ECE)</option>
+            <option value="MECH">Mechanical Engineering</option>
+            <option value="CIVIL">Civil Engineering</option>
+          </select>
+          <span class="error-msg" id="deptError"></span>
+        </div>
+
+        <!-- Gender -->
+        <div class="form-group">
+          <label>Gender <span class="required">*</span></label>
+          <div class="radio-group">
+            <label class="radio-label">
+              <input type="radio" name="gender" value="Male" /> Male
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="gender" value="Female" /> Female
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="gender" value="Other" /> Other
+            </label>
+          </div>
+          <span class="error-msg" id="genderError"></span>
+        </div>
+
+        <!-- Feedback Comments -->
+        <div class="form-group">
+          <label for="feedback"
+            >Feedback Comments <span class="required">*</span></label
+          >
+          <textarea
+            id="feedback"
+            name="feedback"
+            rows="4"
+            placeholder="Write your feedback here (minimum 10 words)..."
+          ></textarea>
+          <span class="error-msg" id="feedbackError"></span>
+        </div>
+
+        <!-- Buttons -->
+        <div class="btn-group">
+          <button type="submit" id="submitBtn" onclick="return validateForm();">
+            Submit
+          </button>
+          <button type="reset" id="resetBtn" onclick="clearErrors()">
+            Reset
+          </button>
+        </div>
+      </form>
+
+      <!-- Success Message (hidden by default) -->
+      <div id="successMsg" class="success-msg" style="display: none">
+        ✅ Feedback submitted successfully! Thank you.
+      </div>
+    </div>
+
+    <!-- Sub Task 3: JavaScript Validation -->
+    <script src="script.js"></script>
+  </body>
+</html>
