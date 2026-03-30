@@ -1,21 +1,19 @@
-// =============================================
-// Sub Task 3: JavaScript Form Validation
-// =============================================
+
 
 function validateForm() {
   let isValid = true;
 
-  // Clear previous errors
+  
   clearErrors();
 
-  // --- 1. Student Name: should not be empty ---
+  
   const name = document.getElementById("studentName").value.trim();
   if (name === "") {
     showError("nameError", "studentName", "Student name cannot be empty.");
     isValid = false;
   }
 
-  // --- 2. Email: must be in proper format ---
+
   const email = document.getElementById("email").value.trim();
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (email === "") {
@@ -30,7 +28,7 @@ function validateForm() {
     isValid = false;
   }
 
-  // --- 3. Mobile: must be 10 valid digits ---
+ 
   const mobile = document.getElementById("mobile").value.trim();
   const mobileRegex = /^[6-9]\d{9}$/;
   if (mobile === "") {
@@ -45,21 +43,21 @@ function validateForm() {
     isValid = false;
   }
 
-  // --- 4. Department: must be selected ---
+  
   const dept = document.getElementById("department").value;
   if (dept === "") {
     showError("deptError", "department", "Please select your department.");
     isValid = false;
   }
 
-  // --- 5. Gender: at least one must be selected ---
+  
   const genderSelected = document.querySelector('input[name="gender"]:checked');
   if (!genderSelected) {
     showError("genderError", null, "Please select your gender.");
     isValid = false;
   }
 
-  // --- 6. Feedback Comments: not blank, min 10 words ---
+  
   const feedback = document.getElementById("feedback").value.trim();
   const wordCount = feedback === "" ? 0 : feedback.split(/\s+/).length;
   if (feedback === "") {
@@ -78,16 +76,16 @@ function validateForm() {
     isValid = false;
   }
 
-  // --- If all valid, show success ---
+ 
   if (isValid) {
     document.getElementById("feedbackForm").style.display = "none";
     document.getElementById("successMsg").style.display = "block";
   }
 
-  return false; // Prevent default form submission
+  return false; 
 }
 
-// Helper: show error message and highlight field
+
 function showError(errorId, fieldId, message) {
   document.getElementById(errorId).textContent = message;
   if (fieldId) {
@@ -95,7 +93,7 @@ function showError(errorId, fieldId, message) {
   }
 }
 
-// Helper: clear all errors and highlights
+
 function clearErrors() {
   const errorIds = [
     "nameError",
